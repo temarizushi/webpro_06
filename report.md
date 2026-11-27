@@ -1,3 +1,4 @@
+
 # レポート作成のためのシステムの対象やページ遷移などについて
 
 ## 平成仮面ライダーの年代表
@@ -12,8 +13,25 @@
 | name | 文字列 | 仮面ライダーの名前 |
 | motif | 文字列 | モチーフ |
 | theme | 文字列 | 作品のテーマ |
-| finalForm | 文字列 |　最終形態 |
+| finalForm | 文字列 | 最終形態 |
 
+### ページ遷移図
+
+```mermaid
+flowchart TD
+    A["一覧表示 /rider"] --> B["詳細表示 /rider/:number"]
+    A --> C["新規登録 /rider/create"]
+    C --> D["新規登録処理 POST /rider"]
+    D --> A
+    C --> A
+    B --> E["編集 /rider/edit/:number"]
+    E --> F["更新処理 POST /rider/update/:number"]
+    F --> A
+    E --> A
+    B --> G["削除処理 /rider/delete/:number"]
+    G --> A
+    B --> A
+```
 
 ## 太田イオンの店舗表
 太田イオンに入っている店舗をまとめる．
@@ -29,6 +47,24 @@
 | genre | 文字列 | 店舗のジャンル |
 | description | 文字列 | 店舗の簡単な説明 |
 
+### ページ遷移図
+
+```mermaid
+flowchart TD
+    A["一覧表示 /aeon"] --> B["詳細表示 /aeon/:number"]
+    A --> C["新規登録 /aeon/create"]
+    C --> D["新規登録処理 POST /aeon"]
+    D --> A
+    C --> A
+    B --> E["編集 /aeon/edit/:number"]
+    E --> F["更新処理 POST /aeon/update/:number"]
+    F --> A
+    E --> A
+    B --> G["削除処理 /aeon/delete/:number"]
+    G --> A
+    B --> A
+```
+
 ## APEXのキャラ一覧表
 APEXのキャラを表にまとめる．
 詳細情報には，キャラ名，本名，出身地，能力を入れる．
@@ -42,3 +78,21 @@ APEXのキャラを表にまとめる．
 | realName | 文字列 | 本名 |
 | birthplace | 文字列 | 出身地 |
 | ability | 文字列 | 能力 |
+
+### ページ遷移図
+
+```mermaid
+flowchart TD
+    A["一覧表示 /apex"] --> B["詳細表示 /apex/:number"]
+    A --> C["新規登録 /apex/create"]
+    C --> D["新規登録処理 POST /apex"]
+    D --> A
+    C --> A
+    B --> E["編集 /apex/edit/:number"]
+    E --> F["更新処理 POST /apex/update/:number"]
+    F --> A
+    E --> A
+    B --> G["削除処理 /apex/delete/:number"]
+    G --> A
+    B --> A
+```
